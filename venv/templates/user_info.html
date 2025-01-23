@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+          rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+          crossorigin="anonymous">
+    <title>사용자 정보</title>
+    <style>
+        .frame-container {
+            width: 100%;
+            display: flex;
+            overflow: auto;
+            min-height: 100vh;
+            align-items: center;
+            flex-direction: column;
+        }
+        .frame-frame {
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            overflow: hidden;
+            position: relative;
+            align-items: flex-start;
+            flex-shrink: 0;
+            background-color: rgba(255, 255, 255, 1);
+        }
+        .frame-frame1 {
+            top: 18.15vh;
+            left: 3.07vw;
+            width: 17.71vw;
+            height: 5.56vh;
+            display: flex;
+            position: absolute;
+            align-items: flex-start;
+            flex-shrink: 1;
+            border-radius: 20px;
+            background-color: rgba(182, 226, 223, 1);
+        }
+        .frame-frame2 {
+            top: 0px;
+            left: 1px;
+            width: 100vw;
+            height: 14.63vh;
+            display: flex;
+            position: absolute;
+            align-items: flex-start;
+            flex-shrink: 1;
+        }
+        .frame-text {
+            top: 0.46vh;
+            left: 0px;
+            right: 0px;
+            color: rgba(0, 0, 0, 1);
+            width: 16vw;
+            height: auto;
+            margin: auto;
+            position: absolute;
+            font-size: 1.875vw;
+            align-self: center;
+            text-align: center;
+            font-family: Inter;
+            font-weight: 400;
+            line-height: normal;
+            font-stretch: normal;
+            text-decoration: none;
+        }
+        .frame-rectangle6 {
+            top: 0px;
+            left: 0px;
+            width: 99.95vw;
+            height: 14.63vh;
+            background-color: #7EC9FF;
+            position: absolute;
+        }
+         .frame-text1 {
+            top: 3.7vh;
+            left: 0px;
+            color: rgba(0, 0, 0, 1);
+            width: 100vw;
+            height: auto;
+            position: absolute;
+            font-size: 2.5vw;
+            align-self: center;
+            text-align: center;
+            font-family: Inter;
+            font-weight: 400;
+            line-height: normal;
+            font-stretch: normal;
+            text-decoration: none;
+        }
+        .frame-image {
+            top: 25.93vh;
+            left: 15.31vw;
+            width: 69.48vw;
+            height: 63vh;
+            position: absolute;
+            border :none;
+            align-items: center;
+        }
+        .fixed-table {
+          width: 100%; /* 테이블 전체 너비를 100%로 설정 */
+          table-layout: fixed;
+        }
+
+        .fixed-table th, .fixed-table td {
+          font-size : 1vw;
+          height: 1vh;/* 각 셀의 높이를 고정시킵니다. */
+          padding: 0.37vw;
+        }
+        .pagination {
+            margin-top: 2vh;
+        }
+
+        .frame-image .page-link {
+            font-size: 1vw; /* 뷰포트 너비의 1%로 설정 */
+            font-weight: 400;
+            padding: 0.5vw 1vw; /* 페이지 링크 내부 여백 */
+        }
+    </style>
+</head>
+<body>
+    <div class="frame-container">
+        <div class="frame-frame">
+            <div class="frame-frame1">
+                <span class="frame-text">
+                    <span>사용자 정보 조회</span>
+                </span>
+            </div>
+            <div class="frame-frame2">
+                <div class="frame-rectangle6">
+                    <span class="frame-text1">
+                        <span>연구실 안전 출입 관리 시스템</span>
+                    </span>
+                </div>
+            </div>
+            <div class="frame-image">
+                <table class="table table-bordered fixed-table">
+                    <thead>
+                        <tr>
+                            <th scope="col">아이디</th>
+                            <th scope="col">이름</th>
+                            <th scope="col">소속</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for i in data_list %}
+                        <tr>
+                          <td>{{ i[0] }}</td>
+                          <td>{{ i[1] }}</td>
+                          <td>{{ i[2] }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+                <div>
+                    <ul class="pagination justify-content-center">
+                        <li class="page-item {{ 'disabled' if current_page == 1 else '' }}">
+                            <a class="page-link" href="{{ url_for('user_info', page=current_page-1) }}" aria-label="Previous">
+                                <span aria-hidden="true">&laquo;</span>
+                                <span class="sr-only">이전</span>
+                            </a>
+                        </li>
+                        {% for p in range(1, total_pages + 1) %}
+                        <li class="page-item {{ 'active' if p == current_page else '' }}">
+                            <a class="page-link" href="{{ url_for('user_info', page=p) }}">{{ p }}</a>
+                        </li>
+                        {% endfor %}
+                        <li class="page-item {{ 'disabled' if current_page == total_pages else '' }}">
+                            <a class="page-link" href="{{ url_for('user_info', page=current_page + 1) }}" aria-label="Next">
+                                <span aria-hidden="true">&raquo;</span>
+                                <span class="sr-only">다음</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+            crossorigin="anonymous">
+    </script>
+</body>
+</html>

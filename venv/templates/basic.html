@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>복장인식(기본)</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <style>
+.frame-container {
+  width: 100%;
+  display: flex;
+  overflow: auto;
+  min-height: 100vh;
+  align-items: center;
+  flex-direction: column;
+}
+.frame-frame {
+  width: 100%;
+  height: 56.25vw;
+  display: flex;
+  overflow: hidden;
+  position: relative;
+  align-items: flex-start;
+  flex-shrink: 0;
+  background-color: rgba(255, 255, 255, 1);
+}
+.frame-frame1 {
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height:  6.25vw;
+  display: flex;
+  position: absolute;
+  align-items: flex-start;
+  flex-shrink: 1;
+  background: #7EC9FF;
+}
+
+.frame-text {
+  top: 27px;
+  left: 0;
+  color: rgba(0, 0, 0, 1);
+  width: 100vw;
+  height: auto;
+  position: absolute;
+  font-size: 2.5vw;
+  align-self: center;
+  font-style: Regular;
+  text-align: center;
+  font-family: Inter;
+  font-weight: 400;
+  line-height: normal;
+  font-stretch: normal;
+  text-decoration: none;
+  justify-content: center;
+}
+.frame-rectangle2 {
+  top: 7.81vw;
+  left: 2.71vw;
+  width: 45.31vw;
+  height: 34.38vw;
+  position: absolute;
+  background: #D9D9D9;
+}
+.frame-rectangle21 {
+  top: 7.81vw;
+  left: 50.52vw;
+  width: 45.31vw;
+  height: 34.38vw;
+  position: absolute;
+  background: #D9D9D9;
+}
+.frame-frame2 {
+  left: 2.71vw;
+  width: 15.1vw;
+  bottom: 7.81vw;
+  height: 5.24vw;
+  display: flex;
+  position: absolute;
+  align-items: flex-start;
+  flex-shrink: 1;
+  background-color: rgba(255, 255, 255, 1);
+  border-style:solid;
+  border-width:2px;
+  border-color: #000000;
+}
+.frame-text02 {
+  color: rgb(255, 0, 0);
+  width: 15.1vw;
+  height: auto;
+  position: absolute;
+  font-size: 1.67vw;
+  font-style: Regular;
+  text-align: left;
+  font-family: Inter;
+  font-weight: 400;
+  line-height: normal;
+  font-stretch: normal;
+  text-decoration: none;
+}
+.frame-frame5 {
+  width: 15.1vw;
+  left: 50.52vw;
+  bottom: 7.81vw;
+  height: 5.24vw;
+  display: flex;
+  position: absolute;
+  align-items: flex-start;
+  flex-shrink: 1;
+  background-color: rgba(255, 255, 255, 1);
+  border-style:solid;
+  border-width:2px;
+  border-color: #000000;
+}
+.frame-text08 {
+  color: rgb(255, 0, 0);
+  width: 15.1vw;
+  height: auto;
+  position: absolute;
+  font-size: 1.67vw;
+  font-style: Regular;
+  text-align: left;
+  font-family: Inter;
+  font-weight: 400;
+  line-height: normal;
+  font-stretch: normal;
+  text-decoration: none;
+}
+
+    </style>
+</head>
+<body>
+<div class="frame-container">
+      <div class="frame-frame">
+        <div class="frame-frame1">
+          <span class="frame-text">
+            <span>기본 연구실 안전 출입 관리 시스템</span>
+          </span>
+       </div>
+<img class ="frame-rectangle2" alt= "feedCoat" id="basic-feedCoat" src="{{ url_for('basic_feed_coat') }}" >
+<br>
+<img class ="frame-rectangle21" alt="feedShoes" id="basic-feedShoes" src="{{ url_for('basic_feed_shoes') }}">
+  <div class="frame-frame2">
+          <span class="frame-text02">
+            <span id="clothestxt">실험복 X</span>
+          </span>
+        </div>
+          <div class="frame-frame5">
+          <span class="frame-text08">
+            <span id="shoestxt">신발 X</span>
+          </span>
+        </div>
+      </div>
+</div>
+<script>
+    $(document).ready(function(){
+        // AJAX 요청을 주기적으로 보내고 응답을 처리하는 함수
+        function check_bswitch() {
+            $.ajax({
+                url: '/check_bswitch',  // Flask 라우트
+                type: 'GET',
+                success: function(response) {
+                    // 응답으로 받은 enable_switch 값을 확인하여 HTML 업데이트
+                    if (response.b_switchCoat && response.b_switchShoes) {
+                        window.location.href = '{{ url_for("hardware") }}'
+
+                    }
+                    if (response.b_switchCoat) {
+                        $('#clothestxt').text('실험복 착용 완료').css('color', 'green');
+                    }
+                    if (response.b_switchShoes) {
+                        $('#shoestxt').text('신발 착용 완료').css('color', 'green');
+                    }
+                }
+            });
+        }
+        check_bswitch();
+        setInterval(check_bswitch, 1000);  // 1초마다 실행
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>얼굴 인식</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <style>
+        .frame-frame {
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            overflow: hidden;
+            position: absolute;
+            align-items: center;
+            flex-shrink: 0;
+            justify-content: center;
+            background-color: rgba(255, 255, 255, 1);
+        }
+        .frame-frame1 {
+            position: absolute;
+            width: 100vw;
+            height: 14vh;
+            left: 0.05vw;
+            top: 0px;
+            background: #7EC9FF;
+        }
+        .frame-text {
+            position: absolute;
+            width: 100vw;
+            height: 14vh;
+            left: 0px;
+            top: 0px;
+            font-family: 'Inter';
+            font-style: normal;
+            font-weight: 400;
+            font-size: 2.5vw;
+            line-height: 3vw;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: #000000;
+            justify-content: center;
+        }
+
+        .frame-container1 {
+            top: 18.52vh;
+            left: 0px;
+            right: 0px;
+            width: 36.46vw;
+            height: 8.43vh;
+            margin: auto;
+            display: flex;
+            position: absolute;
+            align-items: flex-start;
+        }
+
+        .frame-image2 {
+            top: 0px;
+            left: 0px;
+            width: 5.57vw;
+            height: 8.43vh;
+            position: absolute;
+            padding-bottom: 1px;
+        }
+        .frame-text2 {
+            top: 3.70vh;
+            left: 4vw;
+            color: rgba(0, 0, 0, 1);
+            width: 31.30vw;
+            font-style: Regular;
+            position: absolute;
+            font-size: 2.22vh;
+            text-align: center;
+            font-family: Inter;
+            font-weight: 400;
+            line-height: normal;
+            font-stretch: normal;
+            text-decoration: none;
+        }
+        .frame-group4 {
+            right: 13.33vw;
+            width: 13.13vw;
+            bottom: 4.81vh;
+            height: 6.57vh;
+            display: flex;
+            position: absolute;
+            align-items: flex-start;
+            flex-shrink: 1;
+            background-color: rgba(214, 214, 214, 1);
+        }
+        .frame-text4 {
+            top: 0.93vh;
+            color: rgb(0, 0, 0);
+            width: 13.13vw;
+            bottom: 0.93vh;
+            height: auto;
+            margin: auto;
+            position: absolute;
+            font-size: 3.33vh;
+            font-style: normal;
+            text-align: center;
+            font-family: "Inter";
+            font-weight: 400;
+            line-height: normal;
+            font-stretch: normal;
+            text-transform: uppercase;
+            text-decoration: none;
+        }
+        .frame-rectangle2 {
+            top: 13.89vh;
+            left: 0px;
+            right: 0px;
+            width: 56.20vw;
+            bottom: 0px;
+            height: 55.91vh;
+            margin: auto;
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+<div class="frame-frame">
+        <div class="frame-frame1">
+            <span class="frame-text">
+              <span>연구실 출입 시스템</span>
+            </span>
+    </div>
+    <div class="frame-container1">
+            <img  alt="warning" src="../static/images/warning.png" class="frame-image2"/>
+            <span class="frame-text2">
+                <span>카메라의 화면 안으로 얼굴 전체가 보이도록 들어와주세요.</span>
+        </span>
+    </div>
+    <div class="frame-group4">
+        <button id="clothes_rec"  class="frame-text4" disabled>복장인식</button>
+<!--    <button id="clothes_rec" disabled>복장인식</button>-->
+    </div>
+    <img alt= "webcamfeed" id="webcam-feed" src="{{ url_for('video_feed') }}" class="frame-rectangle2">
+</div>
+     <script>
+         $(document).ready(function(){
+        // AJAX 요청을 주기적으로 보내고 응답을 처리하는 함수
+        function checkEnableSwitch() {
+            $.ajax({
+                url: '/check_enable_switch',  // Flask 라우트
+                type: 'GET',
+                success: function(response) {
+                    // 응답으로 받은 enable_switch 값을 확인하여 HTML 업데이트
+                    if (response.enable_switch) {
+                        $('#clothes_rec').removeAttr('disabled');
+
+                    } else {
+                        $('#clothes_rec').attr('disabled', 'disabled');
+                    }
+                }
+            });
+        }
+
+        // 페이지 로드 시 초기 실행 및 주기적으로 실행
+        checkEnableSwitch();
+        setInterval(checkEnableSwitch, 1000);  // 1초마다 실행
+
+        // 버튼 클릭 이벤트 처리
+        $('#clothes_rec').click(function() {
+            window.location.href = '{{ url_for("lab_page") }}';
+
+        });
+    });
+
+    </script>
+</body>
+</html>

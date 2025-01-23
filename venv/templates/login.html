@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>로그인</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            height: 100vh;
+            background-color: #7EC9FF;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .login-form {
+            width: 600px;
+            background-color: #fff;
+            padding: 60px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+            border-radius: 12px;
+            text-align: center;
+        }
+
+
+        .input-container {
+            display: flex;
+            margin-bottom: 20px;
+        }
+
+         .input-container input {
+             width: calc(100% - 30px); /* Adjust for larger padding */
+             padding: 15px; /* Larger padding */
+             font-size: 24px; /* Larger font size */
+             border: 1px solid #ccc;
+             border-radius: 6px; /* Smoothed corners */
+         }
+        button {
+            width: 100%;
+            padding: 15px 0; /* Larger padding */
+            background-color: #7EC9FF;
+            color: white;
+            font-size: 24px; /* Larger font size */
+            border: none;
+            border-radius: 6px; /* Smoothed corners */
+        }
+        button:hover {
+            background-color: #7EC9FF;
+        }
+     </style>
+</head>
+<body>
+     {%with messages = get_flashed_messages()%}
+  {%if messages %}
+    <script type="text/javascript">
+      alert("{{messages[-1]}}");
+    </script>
+    {%endif%}
+  {%endwith%}
+    <div class="login-form">
+        <form action="/login" method="post">
+            <div class="input-container">
+              <input type="text" name="username" placeholder="아이디" required>
+                </div>
+            <div class="input-container">
+             <input type="password" name="password" placeholder="비밀번호" required>
+                </div>
+            <button type="submit">로그인</button>
+        </form>
+        </div>
+        <script>
+    window.onload = function() {
+        var errorMsg = "{{ error }}"; // Get error message passed from Flask
+        if (errorMsg) {
+            alert(errorMsg); // Show alert if there is an error
+        }
+    }
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>관리자 페이지</title>
+    <style>
+        .banner{
+            position: absolute;
+            width: 100vw;
+            height: 14.63vh;
+            left: 0.05vw;
+            top: 0px;
+            background: #7EC9FF;
+        }
+
+        .bannertext{
+            position: absolute;
+            width: 100vw;
+            height: 14.63vh;
+            left: 0.05vw;
+            top: 0px;
+            font-family: 'Inter';
+            font-style: normal;
+            font-weight: 400;
+            font-size: 4.4vh;
+            line-height: 5.37vh;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            justify-content: center;
+            color: #000000;
+        }
+
+        .button1 {
+             top: 23.24vh;
+             position: absolute;
+             width: 26.25vw;
+             height: 14.17vh;
+             left: 50%;
+             transform: translateX(-50%);
+             border: 0.05vw solid #C0DDFF;
+             background: #C0DDFF;
+             border-radius: 1.04vw;
+             justify-content: center;
+        }
+
+         .button2 {
+            top: 45.09vh;
+            position: absolute;
+            width: 26.25vw;
+            height: 14.17vh;
+            left: 50%;
+            transform: translateX(-50%);
+            border: 0.05vw solid #C0DDFF;
+            background: #C0DDFF;
+            border-radius: 1.04vw;
+            justify-content: center;
+        }
+        .button3 {
+            top: 66.94vh;
+            position: absolute;
+            width: 26.25vw;
+            height: 14.17vh;
+            left: 50%;
+            transform: translateX(-50%);
+            border: 0.05vw solid #C0DDFF;
+            background: #C0DDFF;
+            border-radius: 1.04vw;
+            justify-content: center;
+        }
+
+        .buttontext1, .buttontext2, .buttontext3 {
+            font-family: 'Inter';
+            font-style: normal;
+            font-weight: 400;
+            font-size: 3.33vh;
+            line-height: 4.07vh;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: #000000;
+            justify-content: center;
+        }
+     </style>
+</head>
+<body>
+<div class="banner"></div>
+    <div class="bannertext">연구실 출입관리 시스템</div>
+    <div>
+     <button class="button1" id="add-user">
+    <span class="buttontext1">사용자 등록</span>
+        </button>
+        <button class="button2" id="user-info">
+            <span class="buttontext2">사용자 정보 조회</span>
+        </button>
+        <button class="button3" id="access-rec">
+            <span class="buttontext3">출입 기록 관리</span>
+        </button>
+    </div>
+<script>
+    document.getElementById('add-user').addEventListener('click', function() {
+    window.location.href = '{{ url_for("add_user") }}';
+    });
+    document.getElementById('user-info').addEventListener('click', function() {
+    window.location.href = '{{ url_for("user_info") }}';
+    });
+    document.getElementById('access-rec').addEventListener('click', function() {
+    window.location.href = '{{ url_for("access_rec") }}';
+    });
+</script>
+</body>
+</html>

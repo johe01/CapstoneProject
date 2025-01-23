@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>사진 촬영</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <style>
+        .frame-container {
+          width: 100%;
+          display: flex;
+          overflow: auto;
+          min-height: 100vh;
+          align-items: center;
+          flex-direction: column;
+        }
+        .frame-text04 {
+          top: 4.35vh;
+          left: 0vw;
+          color: rgba(0, 0, 0, 1);
+          right: 0vw;
+          width: 100vw;
+          height: auto;
+          margin: auto;
+          position: absolute;
+          font-size: 4.44vh;
+          align-self: center;
+          font-style: Regular;
+          text-align: center;
+          font-family: Inter;
+          font-weight: 400;
+          line-height: normal;
+          font-stretch: normal;
+          text-decoration: none;
+        }
+        .frame-rectangle6 {
+          top: 0vh;
+          left: 0vw;
+          width: 99.95vw;
+          height: 14.63vh;
+          position: absolute;
+          background-color: #7EC9FF;
+        }
+
+        .frame-rectangle2 {
+          top: 30.46vh;
+          left: 51%;
+          width: 48vw;
+          height: 60.19vh;
+          position: absolute;
+          background: #D9D9D9;
+          justify-content: center;
+          transform: translateX(-50%); /* 요소의 너비의 절반만큼 왼쪽으로 이동 */
+        }
+
+        .frame-frame8 {  /* 단계 프레임 */
+          top: 18.61vh;
+          left: -3.65vw;
+          right: 0vw;
+          width: 35.83vw;
+          justify-content: center;
+          height: 7.22vh;
+          margin: auto;
+          display: flex;
+          position: absolute;
+          align-items: flex-start;
+          flex-shrink: 1;
+        }
+
+        .frame-frame3 {
+          top: 0vh;
+          left: 27.60vw;
+          width: 13.80vw;
+          height: 7.22vh;
+          display: flex;
+          position: absolute;
+          align-items: flex-start;
+          flex-shrink: 1;
+        }
+
+        .frame-rectangle14 {
+          top: 0px;
+          left: 0px;
+          width: 13.80vw;
+          height: 7.22vh;
+          background: #ffffff;
+          border: 1px solid #000000;
+          position: absolute;
+        }
+
+        .frame-text14 {
+          top: 2.13vh;
+          left: 0vw;
+          color: rgba(0, 0, 0, 1);
+          right: 0vw;
+          width: 9.95vw;
+          height: auto;
+          margin: auto;
+          position: absolute;
+          font-size: 2.22vh;
+          align-self: center;
+          font-style: Regular;
+          text-align: center;
+          font-family: Inter;
+          font-weight: 400;
+          line-height: normal;
+          font-stretch: normal;
+          text-decoration: none;
+        }
+        .frame-frame2 {
+          top: 0vh;
+          left: 13.80vw;
+          width: 13.80vw;
+          height: 7.22vh;
+          display: flex;
+          position: absolute;
+          align-items: flex-start;
+          flex-shrink: 1;
+        }
+
+        .frame-rectangle13 {
+          top: 0px;
+          left: 0px;
+          width: 13.80vw;
+          height: 7.22vh;
+          background: #C0DDFF;
+          border: 1px solid #000000;
+          position: absolute;
+        }
+
+        .frame-text16 {
+          top: 2.13vh;
+          left: 0vw;
+          color: rgba(0, 0, 0, 1);
+          right: 0vw;
+          width: 9.95vw;
+          height: auto;
+          margin: auto;
+          position: absolute;
+          font-size: 2.22vh;
+          align-self: center;
+          font-style: Regular;
+          text-align: center;
+          font-family: Inter;
+          font-weight: 400;
+          line-height: normal;
+          font-stretch: normal;
+          text-decoration: none;
+        }
+
+        .frame-frame1 {
+          top: 0vh;
+          left: 0vw;
+          width: 13.80vw;
+          height: 7.22vh;
+          display: flex;
+          position: absolute;
+          align-items: flex-start;
+          flex-shrink: 1;
+        }
+
+        .frame-rectangle12 {
+          top: 0px;
+          left: 0px;
+          width: 13.80vw;
+          height: 7.22vh;
+          position: absolute;
+          background: #ffffff;
+          border: 1px solid #000000;
+        }
+
+        .frame-text18 {
+          top: 2.13vh;
+          left: 0vw;
+          color: rgba(0, 0, 0, 1);
+          right: 0vw;
+          width: 9.95vw;
+          height: auto;
+          margin: auto;
+          position: absolute;
+          font-size: 2.22vh;
+          align-self: center;
+          font-style: Regular;
+          text-align: center;
+          font-family: Inter;
+          font-weight: 400;
+          line-height: normal;
+          font-stretch: normal;
+          text-decoration: none;
+        }
+        .frame-frame4 {
+          top: 90.65vh;
+          left: 83.80vw;
+          width: 13vw;
+          height: 6.15vh;
+          display: flex;
+          position: absolute;
+          align-items: flex-start;
+          flex-shrink: 1;
+          background-color: rgba(191, 220, 255, 1);
+          border-radius: 20px;
+          border: none;
+        }
+        .frame-text10 {
+          top: 1.3vh;
+          left: 1.50vw;
+          color: rgba(0, 0, 0, 1);
+          width: 10vw;
+          height: auto;
+          position: absolute;
+          font-size: 3vh;
+          font-style: Regular;
+          text-align: center;
+          font-family: Inter;
+          font-weight: 400;
+          line-height: normal;
+          font-stretch: normal;
+          text-decoration: none;
+        }
+</style>
+
+</head>
+<body>
+<div class="frame-container">
+        <div class="frame-rectangle6">
+            <span class="frame-text04">연구실 안전 출입 관리 시스템</span>
+        </div>
+         <div class="frame-frame8">
+            <div class="frame-frame3">
+                <div class="frame-rectangle14"></div>
+                <span class="frame-text14">사용자 등록</span>
+            </div>
+            <div class="frame-frame2">
+                <div class="frame-rectangle13"></div>
+                <span class="frame-text16">사진 촬영</span>
+            </div>
+            <div class="frame-frame1">
+                <div class="frame-rectangle12"></div>
+                <span class="frame-text18">정보 입력</span>
+            </div>
+        </div>
+        <img src="{{ url_for('capture_feed') }}" alt="webcam" class ="frame-rectangle2" id="webcam"></img>
+        <button class="frame-frame4" id="shoot">
+          <span class="frame-text10">
+            촬영 시작
+          </span>
+        </button>
+ </div>
+<script>
+        $(document).ready(function(){
+            $('#shoot').click(function(){
+                $.ajax({
+                    url: "{{ url_for('capture_image') }}",
+                    type: 'POST',
+                    success: function(response) {
+                        if (response.status === 'success') {
+                            alert("사진 촬영 성공");
+                            window.location.href = '{{ url_for("run_rec") }}';
+                        } else {
+                            alert("사진 촬영 실패");
+                        }
+                    },
+                    error: function(error) {
+                        alert("에러 발생: " + error);
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

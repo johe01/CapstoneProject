@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Main</title>
+    <style>
+        .frame-container {
+          width: 100vw;
+          display: flex;
+          overflow: auto;
+          min-height: 100vh;
+          align-items: center;
+          flex-direction: column;
+        }
+        .frame-frame {
+          width: 100vw;
+          height: 100vh;
+          display: flex;
+          overflow: hidden;
+          position: relative;
+          align-items: flex-start;
+          flex-shrink: 0;
+          background-color: rgba(255, 255, 255, 1);
+        }
+        .frame-group1 {  /*파란네모박스*/
+           top: 17.59vh;
+          left: 0px;
+           width: 100vw;
+          height: 65vh;
+          display: flex;
+          position: absolute;
+          align-items: flex-start;
+          flex-shrink: 1;
+          background-color: rgba(126, 200, 255, 1);
+        }
+        .frame-frame1 {  /*시작하는 하얀 박스*/
+          top: 25.30vh;
+          left: 42.19vw;
+          width: 15.63vw;
+          height: 9.26vh;
+          display: flex;
+          position: absolute;
+          border:none;
+          align-items: flex-start;
+          flex-shrink: 1;
+          border-radius: 10px;
+          background-color: rgba(191, 220, 255, 1);
+        }
+        .frame-text {
+          top: 2.41vh;
+          left: 0px;
+          color: rgba(0, 0, 0, 1);
+          width: 15.63vw;
+          height: auto;
+          position: absolute;
+          font-size: 1.88vw;
+          align-self: center;
+          font-style: Regular;
+          text-align: center;
+          font-family: Inter;
+          font-weight: 400;
+          line-height: normal;
+          font-stretch: normal;
+          text-decoration: none;
+        }
+        .frame-text02 { /*시스템시작하기 텍스트*/
+          top: 18.89vh;
+          left: 30.36vw;
+          color: rgba(0, 0, 0, 1);
+          width: 39.27vw;
+          height: auto;
+          position: absolute;
+          font-size: 1.67vw;
+          font-style: Regular;
+          text-align: center;
+          font-family: Inter;
+          font-weight: 400;
+          line-height: normal;
+          font-stretch: normal;
+          text-decoration: none;
+        }
+        .frame-frame2 {  /*맨위 하얀부분*/
+          top: 0px;
+          left: 0px;
+          width: 100vw;
+          height: 17.59vh;
+          display: flex;
+          position: absolute;
+          align-items: flex-start;
+          flex-shrink: 1;
+          background-color: rgba(255, 255, 255, 1);
+        }
+        .frame-text04 {  /*연구실출입관리시스템 텍스트*/
+          top: 5.83vh;
+          left :0px;
+          color: rgb(0, 0, 0);
+          right: 0px;
+          width: 33.85vw;
+          height: auto;
+          margin: auto;
+          position: absolute;
+          font-size: 2.5vw;
+          align-self: center;
+          font-style: Regular;
+          text-align: center;
+          font-family: "Inter";
+          font-weight: 400;
+          line-height: normal;
+          font-stretch: normal;
+          text-decoration: none;
+        }
+        .frame-text05 {  /*관리자페이지 텍스트*/
+          top: 11.94vh;
+          right: 5.21vw;
+          color: rgba(0, 0, 0, 1);
+          width: 9.06vw;
+          height: auto;
+          position: absolute;
+          font-size: 1.25vw;
+          font-style: Regular;
+          text-align: center;
+          font-family: Inter;
+          font-weight: 400;
+          line-height: normal;
+          font-stretch: normal;
+          text-decoration: none;
+        }
+        .frame-frame3 { /*관리자로그인 프레임*/
+          top: 6.39vh;
+          left: 3.02vw;
+          width: 8.33vw;
+          height: 4.91vh;
+          display: flex;
+          position: absolute;
+          align-items: flex-start;
+          flex-shrink: 1;
+          border-radius: 1.04vw;
+          background-color: rgba(182, 226, 223, 1);
+        }
+        .frame-text07 { /*관리자로그인 텍스트*/
+          top: 1.02vh;
+          left: 0px;
+          color: rgba(0, 0, 0, 1);
+          width: 8.33vw;
+          height: auto;
+          position: absolute;
+          font-size: 1.25vw;
+          align-self: center;
+          font-style: Regular;
+          text-align: center;
+          font-family: Inter;
+          font-weight: 400;
+          line-height: normal;
+          font-stretch: normal;
+          text-decoration: none;
+        }
+        .frame-text09 {  /*한국공학대학교 텍스트*/
+           top: 70.19vh;
+          left: 36.98vw;
+          color: rgba(0, 0, 0, 1);
+          width: 26.25vw;
+          height: auto;
+          margin: auto;
+          position: absolute;
+          font-size: 1.88vw;
+          align-self: center;
+          font-style: Regular;
+          text-align: center;
+          font-family: Inter;
+          font-weight: 400;
+          line-height: normal;
+          font-stretch: normal;
+          text-decoration: none;
+
+
+        }
+        .logout-button {
+             top: 6.39vh;
+              left: 3.02vw;
+              width: 8.33vw;
+              height: 4.91vh;
+              display: flex;
+              position: fixed;
+              align-items: flex-start;
+              flex-shrink: 1;
+              border-radius: 1.04vw;
+              background-color: rgba(182, 226, 223, 1);
+              color: rgba(0, 0, 0, 1);
+              justify-content: center;
+               font-size: 0.88vw;
+              align-self: center;
+              font-style: Regular;
+              border :none;
+              text-align: center;
+              font-family: Inter;
+              font-weight: 400;
+              line-height: normal;
+              font-stretch: normal;
+              text-decoration: none;
+        }
+    </style>
+</head>
+<body style="overflow-x: hidden;">
+    <div class="frame-container">
+          <div class="frame-frame">
+            <div class="frame-group1">
+                 <span class="frame-text09">
+                    <span>한국공학대학교</span>
+                </span>
+              <button id="start" class="frame-frame1">
+                    <span class="frame-text">
+                        <span>얼굴 인식</span>
+                    </span>
+                </button>
+              <span class="frame-text02">
+                <span>&gt;시스템 시작하기</span>
+              </span>
+            </div>
+            <div class="frame-frame2">
+                    <span class="frame-text04">연구실 안전 출입 관리 시스템</span>
+                    <button id="manager_btn" class="frame-text05" onclick="window.location.href='{{ url_for('admin') }}';">
+                        <span>관리자 페이지</span>
+                    </button>
+                {% if 'username' in session %}
+                <button class="logout-button" onclick="location.href='{{ url_for('logout') }}'">
+                    <span > 관리자 {{ session.username }} 님<br>Logout</span>
+                </button>
+                {% else %}
+        <!-- 로그인 되지 않은 상태일 때 로그인 링크 표시 -->
+                <div class="frame-frame3">
+                    <a href="{{ url_for('login') }}" class="frame-text07">
+                        <span>관리자 로그인</span>
+                    </a>
+                </div>
+                {% endif %}
+            </div>
+          </div>
+    </div>
+    <script>
+        document.getElementById('start').addEventListener('click', function() {
+            window.location.href = "{{ url_for('start_page') }}";
+        });
+    </script>
+</body>
+</html>

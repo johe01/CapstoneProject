@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>실험실 선택</title>
+    <style>
+        .frame-container {
+          width: 100%;
+          display: flex;
+          overflow: hidden;
+          min-height: 100vh;
+          align-items: center;
+          flex-direction: column;
+        }
+
+        .frame-frame {
+          top: 35.74vh;
+          left: 55.47vw;
+          width: 25vw;
+          height: 48.15vh;
+          display: flex;
+          position: absolute;
+          align-items: flex-start;
+          flex-shrink: 1;
+          background-color: rgba(191, 220, 255, 1);
+        }
+
+        .frame-frame1 {
+          top: 35.74vh; /* 동일 비율 */
+          left: 19.38vw; /* 372px는 1920의 약 19.38% */
+          width: 25vw;
+          height: 48.15vh;
+          display: flex;
+          position: absolute;
+          align-items: flex-start;
+          flex-shrink: 1;
+          background-color: rgba(191, 220, 255, 1);
+        }
+        .frame-text02 {
+          top: 21.27vh;
+          left: 5.89vw;
+          color: rgba(0, 0, 0, 1);
+          width: 13.23vw;
+          height: auto;
+          position: absolute;
+          font-size: 3.70vh;
+          text-align: center;
+          font-family: Inter;
+          font-weight: 400;
+          background-color: rgba(191, 220, 255, 1);
+          line-height: normal;
+          font-stretch: normal;
+          text-decoration: none;
+          border : none;
+        }
+        .frame-text04 {
+          top: 21.57vh;
+          left: 35.1vw;
+          color: rgba(0, 0, 0, 1);
+          width: 30.47vw;
+          height: auto;
+          position: absolute;
+          font-size: 3.33vh;
+          text-align: center;
+          font-family: Inter;
+          font-weight: 400;
+          line-height: normal;
+          font-stretch: normal;
+          text-decoration: none;
+        }
+        .frame-frame2 {
+          top: 0vh;
+          left: 0vw;
+          width: 100vw;
+          height: 14.63vh;
+          display: flex;
+          position: absolute;
+          align-items: flex-start;
+          flex-shrink: 1;
+          background-color: #7EC9FF;
+        }
+        .frame-rectangle6 {
+            top: 0vh;
+            left: 0.05vw;
+            width: 99.95vw;
+            height: 14.63vh;
+            position: absolute;
+            background-color: #7EC9FF;
+        }
+        .frame-text06 {
+          color: rgba(0, 0, 0, 1);
+          top: 4.35vh;
+          width: 100vw;
+          height: auto;
+          position: absolute;
+          font-size: 4.44vh;
+          text-align: center;
+          font-family: Inter;
+          font-weight: 400;
+          line-height: normal;
+          font-stretch: normal;
+          text-decoration: none;
+        }
+
+        .frame-text08 {
+          top: 20.76vh;
+          left: 5.99vw;
+          color: rgba(0, 0, 0, 1);
+          width: 13.23vw;
+          height: auto;
+          position: absolute;
+          font-size: 3.70vh;
+          text-align: center;
+          font-family: Inter;
+          border: none;
+          background-color: rgba(191, 220, 255, 1);
+          font-weight: 400;
+          line-height: normal;
+          font-stretch: normal;
+          text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+<div>
+    <div class="frame-container">
+        <div class="frame-frame">
+        <button id="chemical" class="frame-text08">화학 실험실</button>
+        </div>
+        <div class="frame-frame1">
+       <button id="basic" class="frame-text02">기본 실험실</button>
+        </div>
+        <span class="frame-text04">
+          <span>이용하려는 실험실을 선택해주세요.</span>
+        </span>
+        <div class="frame-frame2">
+         <div class="frame-rectangle6">
+          <span class="frame-text06">
+            <span>연구실 안전 출입 관리 시스템</span>
+          </span>
+             </div>
+            </div>
+        </div>
+    </div>
+<script>
+    document.getElementById('basic').addEventListener('click', function() {
+    window.location.href = '{{ url_for("basic_page") }}';
+    });
+    document.getElementById('chemical').addEventListener('click', function() {
+    window.location.href = '{{ url_for("chemical_page") }}';
+    });
+    </script>
+
+</body>
+</html>

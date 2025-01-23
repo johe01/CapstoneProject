@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>정보 입력</title>
+    <style>
+        .frame-container {
+  width: 100vw;
+  display: flex;
+  overflow: hidden;
+  min-height: 100vh;
+  align-items: center;
+  flex-direction: column;
+}
+
+.frame-frame100{
+   top: 19.07vh;
+  left: 3.13vw;
+  width: 17.19vw;
+  height: 5.56vh;
+  display: flex;
+  background-color: #B7E2E0;
+  position: absolute;
+  align-items: flex-start;
+  flex-shrink: 1;
+  border-radius: 20px;
+}
+.frame-text {
+  top: 0.56vh;
+  left: 0px;
+  color: rgba(0, 0, 0, 1);
+  right: 0px;
+  width: 11.51vw;
+  height: auto;
+  margin: auto;
+  position: absolute;
+  font-size: 3.33vh;
+  align-self: center;
+  font-style: Regular;
+  text-align: center;
+  font-family: Inter;
+  font-weight: 400;
+  line-height: normal;
+  font-stretch: normal;
+  text-decoration: none;
+}
+.frame-next {  /*다음버튼*/
+  top: 77.78vh;
+  left: 43.75vw;
+  width: 13.80vw;
+  height: 8.15vh;
+  display: flex;
+  position: absolute;
+  align-items: center;
+  flex-shrink: 1;
+  border-radius: 20px;
+  border: none;
+  background-color: rgba(191, 220, 255, 1);
+}
+.frame-text02 {
+  top: 2.04vh;
+  left: 1.35vw;
+  color: rgba(0, 0, 0, 1);
+  width: 11.20vw;
+  height: auto;
+  position: absolute;
+  font-size: 3.33vh;
+  font-style: Regular;
+  text-align: center;
+  font-family: Inter;
+  font-weight: 400;
+  line-height: normal;
+  background-color: rgba(191, 220, 255, 1);
+  border: none;
+  font-stretch: normal;
+  text-decoration: none;
+}
+.frame-frame3 {
+  top: 0vh;
+  left: 0.05vw;
+  width: 100vw;
+  height: 14.63vh;
+  display: flex;
+  position: absolute;
+  align-items: flex-start;
+  flex-shrink: 1;
+}
+.frame-rectangle6 {
+   top: 0vh;
+  left: 0vw;
+  width: 99.95vw;
+  height: 14.63vh;
+  position: absolute;
+  background-color: #7EC9FF;
+}
+.frame-text04 {
+  top: 4.35vh;
+  left: 0vw;
+  color: rgba(0, 0, 0, 1);
+  right: 0vw;
+  width: 100vw;
+  height: auto;
+  margin: auto;
+  position: absolute;
+  font-size: 4.44vh;
+  align-self: center;
+  font-style: Regular;
+  text-align: center;
+  font-family: Inter;
+  font-weight: 400;
+  line-height: normal;
+  font-stretch: normal;
+  text-decoration: none;
+}
+
+.frame-frame5 { /*사용자이름 프레임*/
+  top: 47.69vh;
+  left: 13.54vw;
+  width: 72.92vw;
+  height: 9.26vh;
+  display: flex;
+  position: absolute;
+  align-items: flex-start;
+  flex-shrink: 1;
+}
+.frame-text08 {   /* 사용자이름 텍스트*/
+  color: rgba(0, 0, 0, 1);
+  width: 20.21vw;
+  height: auto;
+  font-size: 2.22vh;
+  align-self: center;
+  font-style: Regular;
+  text-align: center;
+  font-family: Inter;
+  font-weight: 400;
+  line-height: normal;
+  font-stretch: normal;
+  text-decoration: none;
+}
+.frame-rectangle4 { /* 사용자이름 박스*/
+  top: 0px;
+  left: 20.21vw;
+  width: 31.25vw;
+  height: 9.26vh;
+  font-size : 2.5vh;
+  position: absolute;
+  border-color: rgba(0, 0, 0, 1);
+  border-style: solid;
+  border-width: 1px;
+}
+.frame-frame6 {  /*소속프레임*/
+  top: 60.83vh;
+  left: 13.54vw;
+  width: 72.92vw;
+  height: 9.26vh;
+  display: flex;
+  position: absolute;
+  align-items: flex-start;
+  flex-shrink: 1;
+}
+.frame-text10 {   /*소속텍스트*/
+  top: 3.15vh;
+  left: 0vw;
+  color: rgba(0, 0, 0, 1);
+  width: 20.21vw;
+  height: auto;
+  position: absolute;
+  font-size: 2.22vh;
+  align-self: center;
+  font-style: Regular;
+  text-align: center;
+  font-family: Inter;
+  font-weight: 400;
+  line-height: normal;
+  font-stretch: normal;
+  text-decoration: none;
+}
+.frame-rectangle41 {  /*소속박스*/
+  top: 0px;
+  left: 20.21vw;
+  width: 31.5vw;
+  height: 9.26vh;
+  font-size : 2.5vh;
+  position: absolute;
+  border-color: rgba(0, 0, 0, 1);
+  border-style: solid;
+  border-width: 1px;
+}
+.frame-frame7 {  /*아이디프레임*/
+  top: 34.54vh;
+  left: 13.54vw;
+  width: 72.92vw;
+  height: 9.26vh;
+  display: flex;
+  position: absolute;
+  align-items: flex-start;
+  flex-shrink: 1;
+}
+.frame-text12 {  /*아이디텍스트*/
+  color: rgba(0, 0, 0, 1);
+  width: 20.21vw;
+  height: auto;
+  font-size: 2.22vh;
+  align-self: center;
+  font-style: Regular;
+  text-align: center;
+  font-family: Inter;
+  font-weight: 400;
+  line-height: normal;
+  font-stretch: normal;
+  text-decoration: none;
+}
+.frame-rectangle42 {  /* 아이디 박스*/
+  top: 0px;
+  left: 20.21vw;
+  width: 31.25vw;
+  height: 9.26vh;
+  font-size : 2.5vh;
+  position: absolute;
+  border-color: rgba(0, 0, 0, 1);
+  border-style: solid;
+  border-width: 1px;
+}
+.frame-frame8 {  /*단계 전체 프레임*/
+  top: 18.61vh;
+  left: -3.65vw;
+  right: 0vw;
+  width: 35.83vw;
+  justify-content: center;
+  height: 7.22vh;
+  margin: auto;
+  display: flex;
+  position: absolute;
+  align-items: flex-start;
+  flex-shrink: 1;
+}
+.frame-frame3 {   /*사용자등록 프레임*/
+  top: 0vh;
+  left: 27.60vw;
+  width: 13.80vw;
+  height: 7.22vh;
+  display: flex;
+  position: absolute;
+  align-items: flex-start;
+  flex-shrink: 1;
+}
+.frame-rectangle14 {  /*사용자등록 박스*/
+  top: 0px;
+  left: 0px;
+  width: 13.80vw;
+  height: 7.22vh;
+  background: #ffffff;
+  border: 1px solid #000000;
+  position: absolute;
+
+}
+.frame-text14 {  /*사용자등록 텍스트*/
+  top: 2.13vh;
+  left: 0vw;
+  color: rgba(0, 0, 0, 1);
+  right: 0vw;
+  width: 9.95vw;
+  height: auto;
+  margin: auto;
+  position: absolute;
+  font-size: 2.22vh;
+  align-self: center;
+  font-style: Regular;
+  text-align: center;
+  font-family: Inter;
+  font-weight: 400;
+  line-height: normal;
+  font-stretch: normal;
+  text-decoration: none;
+}
+.frame-frame2 {      /*사진촬영 프레임*/
+  top: 0vh;
+  left: 13.80vw;
+  width: 13.80vw;
+  height: 7.22vh;
+  display: flex;
+  position: absolute;
+  align-items: flex-start;
+  flex-shrink: 1;
+}
+.frame-rectangle13 {    /*사진촬영 박스*/
+  top: 0px;
+  left: 0px;
+  width: 13.80vw;
+  height: 7.22vh;
+  background: #ffffff;
+  border: 1px solid #000000;
+  position: absolute;
+}
+.frame-text16 {  /*사진촬영 텍스트*/
+  top: 2.13vh;
+  left: 0vw;
+  color: rgba(0, 0, 0, 1);
+  right: 0vw;
+  width: 9.95vw;
+  height: auto;
+  margin: auto;
+  position: absolute;
+  font-size: 2.22vh;
+  align-self: center;
+  font-style: Regular;
+  text-align: center;
+  font-family: Inter;
+  font-weight: 400;
+  line-height: normal;
+  font-stretch: normal;
+  text-decoration: none;
+}
+.frame-frame1 {  /*정보입력 프레임*/
+  top: 0vh;
+  left: 0vw;
+  width: 13.80vw;
+  height: 7.22vh;
+  display: flex;
+  position: absolute;
+  align-items: flex-start;
+  flex-shrink: 1;
+}
+.frame-rectangle12 {  /*정보입력 상자*/
+  top: 0px;
+  left: 0px;
+  width: 13.80vw;
+  height: 7.22vh;
+  position: absolute;
+  background: #C0DDFF;
+  border: 1px solid #000000;
+}
+.frame-text18 {  /*정보입력 텍스트*/
+  top: 2.13vh;
+  left: 0vw;
+  color: rgba(0, 0, 0, 1);
+  right: 0vw;
+  width: 9.95vw;
+  height: auto;
+  margin: auto;
+  position: absolute;
+  font-size: 2.22vh;
+  align-self: center;
+  font-style: Regular;
+  text-align: center;
+  font-family: Inter;
+  font-weight: 400;
+  line-height: normal;
+  font-stretch: normal;
+  text-decoration: none;
+}
+
+.double-frame{
+  position: absolute;
+  width: 6.01vw;
+  height: 9.26vh;
+  left: 54.69vw;
+  top: 0vh;
+  border: none;
+  background: #7EC9FF;
+
+}
+.double-text{
+  font-family: Inter;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 3.5vh;
+  line-height: 2vw;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  color: #000000;
+}
+    </style>
+   </head>
+<body>
+    <div class="frame-container">
+        <div class="frame-rectangle6">
+            <span class="frame-text04">연구실 안전 출입 관리 시스템</span>
+        </div>
+            <div class="frame-frame100">
+                <span class="frame-text">
+                 <span>사용자 등록</span>
+            </span>
+        </div>
+        <!---단계부분 --->
+        <div class="frame-frame8">
+            <div class="frame-frame3">
+                <div class="frame-rectangle14"></div>
+                <span class="frame-text14">사용자 등록</span>
+            </div>
+            <div class="frame-frame2">
+                <div class="frame-rectangle13"></div>
+                <span class="frame-text16">사진 촬영</span>
+            </div>
+            <div class="frame-frame1">
+                <div class="frame-rectangle12"></div>
+                <span class="frame-text18">정보 입력</span>
+            </div>
+        </div>
+        <!---form부분 ------>
+        <form id="userForm" method="post" action="/add_user">
+            <div class="frame-frame7">  <!---아이디부분 ------>
+                <label class = "frame-text12" for="userId">아이디</label>
+                <input class = "frame-rectangle42" type="text" id="userId" name="userId" placeholder="영문 대소문자와 숫자를 혼합하세요" required>
+                <button class ="double-frame" type="button" onclick="checkId()" id="checkIdButton">
+                    <span class="double-text">중복 확인</span>
+                </button>
+            </div>              <!---이름부분 ------>
+            <div class="frame-frame5">
+                <label class="frame-text08" for="userName">이름</label>
+                <input class="frame-rectangle4" type="text" id="userName" name="userName" required>
+            </div>
+
+            <div class="frame-frame6">      <!---소속부분 ------>
+                 <label class = "frame-text10" for="user_type">소속</label>
+                <select id="user_type" name="user_type" class="frame-rectangle41" required>
+                    <option value="" disabled selected>선택하세요</option>
+                    <option value="student">학생</option>
+                    <option value="professor">교수</option>
+                </select>
+            </div>
+            <!-- 제출(다음)버튼 -->
+            <div class="frame-next">
+            <input type="submit" value="제출" class="frame-text02 ">
+            </div>
+        </form>
+    </div>
+
+    <script>
+        function checkId() {
+            const userId = document.getElementById('userId').value;
+            if (userId === "") {
+                alert("아이디를 입력해주세요.");
+                return;
+            }
+
+            if (!/^(?=.*[a-zA-Z])(?=.*\d)[a-zA-Z\d]+$/.test(userId)) {
+                alert("올바르지 않은 아이디입니다. 다시 입력해주세요.");
+                return;
+            }
+
+            if (userId.length > 255) {
+                alert("아이디가 너무 깁니다. 다시 입력해주세요.");
+                return;
+            }
+
+            fetch(`/check_id?userId=${userId}`)
+                .then(response => response.json())
+                .then(data => {
+                    if (data.exists) {
+                        alert("존재하는 아이디입니다. 다시 입력해주세요.");
+                    } else {
+                        alert("사용 가능한 아이디입니다.");
+                        document.getElementById('checkIdButton').disabled = true;
+                    }
+                });
+        }
+
+        document.getElementById('userForm').addEventListener('submit', function(event) {
+            const userId = document.getElementById('userId').value;
+            const userName = document.getElementById('userName').value;
+            const user_type = document.getElementById('user_type').value;
+            const checkIdButton = document.getElementById('checkIdButton');
+
+            if (userId === "") {
+                alert("아이디를 입력해주세요.");
+                event.preventDefault();
+                return;
+            }
+            if (userName === "") {
+                alert("이름을 입력해주세요.");
+                event.preventDefault();
+                return;
+            }
+            if (user_type === "") {
+                alert("소속을 선택해주세요.");
+                event.preventDefault();
+                return;
+            }
+            if (!checkIdButton.disabled) {
+                alert("아이디를 중복확인해주세요.");
+                event.preventDefault();
+                return;
+            }
+            if (userName.length > 255) {
+                alert("이름이 너무 깁니다. 다시 입력해주세요.");
+                return;
+            }
+        });
+    </script>
+</body>
+</html>

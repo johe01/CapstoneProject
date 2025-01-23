@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>사용자 등록</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>  /*나머지 스타일 값 동일*/
+        .frame-container {
+          width: 100%;
+          display: flex;
+          overflow: auto;
+          min-height: 100vh;
+          align-items: center;
+          flex-direction: column;
+        }
+        .frame-text04 {
+          top: 4.35vh;
+          left: 0vw;
+          color: rgba(0, 0, 0, 1);
+          right: 0vw;
+          width: 100vw;
+          height: auto;
+          margin: auto;
+          position: absolute;
+          font-size: 4.44vh;
+          align-self: center;
+          font-style: Regular;
+          text-align: center;
+          font-family: Inter;
+          font-weight: 400;
+          line-height: normal;
+          font-stretch: normal;
+          text-decoration: none;
+        }
+        .frame-rectangle6 {
+          top: 0vh;
+          left: 0vw;
+          width: 99.95vw;
+          height: 14.63vh;
+          position: absolute;
+          background-color: #7EC9FF;
+        }
+        .frame-frame8 {  /* 단계 프레임 */
+          top: 18.61vh;
+          left: -3.65vw;
+          right: 0vw;
+          width: 35.83vw;
+          justify-content: center;
+          height: 7.22vh;
+          margin: auto;
+          display: flex;
+          position: absolute;
+          align-items: flex-start;
+          flex-shrink: 1;
+        }
+
+        .frame-frame3 {
+          top: 0vh;
+          left: 27.60vw;
+          width: 13.80vw;
+          height: 7.22vh;
+          display: flex;
+          position: absolute;
+          align-items: flex-start;
+          flex-shrink: 1;
+        }
+
+        .frame-rectangle14 {
+          top: 0px;
+          left: 0px;
+          width: 13.80vw;
+          height: 7.22vh;
+          background: #C0DDFF;
+          border: 1px solid #000000;
+          position: absolute;
+        }
+
+        .frame-text14 {
+          top: 2.13vh;
+          left: 0vw;
+          color: rgba(0, 0, 0, 1);
+          right: 0vw;
+          width: 9.95vw;
+          height: auto;
+          margin: auto;
+          position: absolute;
+          font-size: 2.22vh;
+          align-self: center;
+          font-style: Regular;
+          text-align: center;
+          font-family: Inter;
+          font-weight: 400;
+          line-height: normal;
+          font-stretch: normal;
+          text-decoration: none;
+        }
+        .frame-frame2 {
+          top: 0vh;
+          left: 13.80vw;
+          width: 13.80vw;
+          height: 7.22vh;
+          display: flex;
+          position: absolute;
+          align-items: flex-start;
+          flex-shrink: 1;
+        }
+
+        .frame-rectangle13 {
+          top: 0px;
+          left: 0px;
+          width: 13.80vw;
+          height: 7.22vh;
+          background: #ffffff;
+          border: 1px solid #000000;
+          position: absolute;
+        }
+
+        .frame-text16 {
+          top: 2.13vh;
+          left: 0vw;
+          color: rgba(0, 0, 0, 1);
+          right: 0vw;
+          width: 9.95vw;
+          height: auto;
+          margin: auto;
+          position: absolute;
+          font-size: 2.22vh;
+          align-self: center;
+          font-style: Regular;
+          text-align: center;
+          font-family: Inter;
+          font-weight: 400;
+          line-height: normal;
+          font-stretch: normal;
+          text-decoration: none;
+        }
+
+        .frame-frame1 {
+          top: 0vh;
+          left: 0vw;
+          width: 13.80vw;
+          height: 7.22vh;
+          display: flex;
+          position: absolute;
+          align-items: flex-start;
+          flex-shrink: 1;
+        }
+
+        .frame-rectangle12 {
+          top: 0px;
+          left: 0px;
+          width: 13.80vw;
+          height: 7.22vh;
+          position: absolute;
+          background: #ffffff;
+          border: 1px solid #000000;
+        }
+
+        .frame-text18 {
+          top: 2.13vh;
+          left: 0vw;
+          color: rgba(0, 0, 0, 1);
+          right: 0vw;
+          width: 9.95vw;
+          height: auto;
+          margin: auto;
+          position: absolute;
+          font-size: 2.22vh;
+          align-self: center;
+          font-style: Regular;
+          text-align: center;
+          font-family: Inter;
+          font-weight: 400;
+          line-height: normal;
+          font-stretch: normal;
+          text-decoration: none;
+        }
+        /* 버튼 부분  */
+        .frame-frame4 {
+          top: 90.65vh;
+          left: 83.80vw;
+          width: 13vw;
+          height: 6.15vh;
+          display: flex;
+          position: absolute;
+          align-items: flex-start;
+          flex-shrink: 1;
+          background-color: rgba(191, 220, 255, 1);
+          border-radius: 20px;
+          border: none;
+        }
+        .frame-text10 {
+          top: 1.3vh;
+          left: 1.50vw;
+          color: rgba(0, 0, 0, 1);
+          width: 10vw;
+          height: auto;
+          position: absolute;
+          font-size: 3vh;
+          font-style: Regular;
+          text-align: center;
+          font-family: Inter;
+          font-weight: 400;
+          line-height: normal;
+          font-stretch: normal;
+          text-decoration: none;
+        }
+
+
+        /* 버튼 부분 끝  */
+
+        /* 아래가 돌아가는 스피너 및 글자 부분*/
+
+        .spinframe {
+            position: absolute;
+            bottom: 7vh;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background: none;
+
+        }
+        .spinner {
+            border: 3vw solid #f3f3f3;
+            border-top: 3vw solid #3498db;
+            border-radius: 50%;
+            width: 20vw;
+            height: 20vw;
+            animation: spin 2s linear infinite;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .spinnertext {
+            margin-top: 2vh;
+            font-size: 3vh;
+            color: #000000;
+            text-align: center;
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* 스피너 스타일 끝*/
+       /* 완료 박스 및 텍스트 부분  */
+        .frame-frame1000 {
+          position: absolute;
+          width: 30.16vw;
+          height: 25.46vh;
+          left: 34.90vw;
+          top: 45.00vh;
+          font-size : 3vh;
+          background: #FFFFFF;
+          border: 2px solid #000000;
+          border-radius: 20px;
+          font-family: 'Inter';
+          font-style: normal;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          text-align: center;
+        }
+        /* 완료 박스 및 문구 끝  */
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="frame-container">
+        <div class="frame-rectangle6">
+            <span class="frame-text04">연구실 안전 출입 관리 시스템</span>
+        </div>
+         <div class="frame-frame8">
+            <div class="frame-frame3">
+                <div class="frame-rectangle14"></div>
+                <span class="frame-text14">사용자 등록</span>
+            </div>
+            <div class="frame-frame2">
+                <div class="frame-rectangle13"></div>
+                <span class="frame-text16">사진 촬영</span>
+            </div>
+            <div class="frame-frame1">
+                <div class="frame-rectangle12"></div>
+                <span class="frame-text18">정보 입력</span>
+            </div>
+        </div>
+        <div class="spinframe" id="spinner">  <!-- 스피너 부분 -->
+                <div class="spinner"></div>   <!-- 스피너 구체적 속성 요 클래스에 있음 -->
+            <p class="spinnertext">사용자 등록중입니다</p>
+        </div> <!-- 스피너 끝 -->
+<!--        <button class="frame-frame4" id="start">-->
+<!--          <span class="frame-text10">-->
+<!--            <span>등록 시작</span>-->
+<!--          </span>-->
+<!--        </button>-->
+        <div class="frame-frame4 hidden" id="complete" onclick="window.location.href='/'">
+          <span class="frame-text10">
+            <span>완료</span>
+          </span>
+        </div>
+    </div>
+    <script>
+        $(document).ready(function() {
+                $.ajax({
+                    url: '/train_faces',
+                    type: 'POST',
+                    success: function(response) {
+                        if (response.success) {
+                            $('.spinframe').replaceWith(`
+                                <div class="frame-frame1000">
+                                    <span>사용자 등록이 완료되었습니다.</span>
+                                </div>
+                            `);
+                            $('.frame-frame4').removeClass('hidden');
+                        } else {
+                            alert("Face training failed.");
+                        }
+                    },
+                    error: function(error) {
+                        console.error("Error during face training:", error);
+                        alert("Face training encountered an error.");
+                    }
+                });
+        });
+
+    </script>
+</body>
+</html>
